@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Saude Mental</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <form #cadastro="ngForm" (ngSubmit)="onSubmit(cadastro)">
+          <ion-item>
+            <ion-label position="floating">ID <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input required type="text" name="id" [(ngModel)]="pessoa.id"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nome <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input required type="text" name="nome" [(ngModel)]="pessoa.nome"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Idade <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input required type="text" name="idade" [(ngModel)]="pessoa.idade"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Saude mental</ion-label>
+            <ion-select value="peperoni" multiple="false" placeholder="Select Estado mental" name="saudeMental"
+              [(ngModel)]="pessoa.saudeMental">
+              <ion-select-option [value]="1">1 - Péssima</ion-select-option>
+              <ion-select-option [value]="2">2 - Ruim</ion-select-option>
+              <ion-select-option [value]="3">3 - Normal</ion-select-option>
+              <ion-select-option [value]="4">4 - Boa</ion-select-option>
+              <ion-select-option [value]="5">5 - Ótima</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Raça/cor <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input required type="text" name="racaCor" [(ngModel)]="pessoa.racaCor"></ion-input>
+          </ion-item>
+          <ion-button block color="primary" type="submit" expand="block">
+            Cadastrar
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+    <br>
+    <br>
+    <ion-row>
+      <ion-col size="12">
+        <ion-title>Pesquisar por id</ion-title>
+        <br>
+        <form #idPesquisa="ngForm" (ngSubmit)="pesquisarId(idPesquisa)">
+          <ion-item>
+            <ion-label position="floating">ID <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input required type="text" name="id" [(ngModel)]="pessoa.id"></ion-input>
+          </ion-item>
+          <ion-button block color="primary" type="submit" expand="block">
+            Pesquisar
+          </ion-button>
+        </form>
+      </ion-col>
+      <br>
+      <ion-col size="12">
+        <ion-title>Pesquisar por estado mental</ion-title>
+        <br>
+        <form #mentalPesquisa="ngForm" (ngSubmit)="pesquisarEstadoMental(mentalPesquisa)">
+          <ion-item>
+            <ion-label>Saude mental</ion-label>
+            <ion-select value="peperoni" multiple="false" placeholder="Select Estado Mental" name="saudeMental"
+              [(ngModel)]="pessoa.saudeMental">
+              <ion-select-option [value]="1">1 - Péssima</ion-select-option>
+              <ion-select-option [value]="2">2 - Ruim</ion-select-option>
+              <ion-select-option [value]="3">3 - Normal</ion-select-option>
+              <ion-select-option [value]="4">4 - Boa</ion-select-option>
+              <ion-select-option [value]="5">5 - Ótima</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button block color="primary" type="submit" expand="block">
+            Pesquisar
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
